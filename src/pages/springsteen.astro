@@ -1,8 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Show from '@components/Show.astro';
 
-const data;
 ---
 <Layout title="Springsteen">
   <div class="prose prose-slate mx-auto lg:prose-lg">
@@ -17,7 +15,6 @@ const data;
       <th></th>
     </thead>
     <tbody>
-      {data.map(s => <Show show={s} />)}
     </tbody>
   </table>
 </Layout>
