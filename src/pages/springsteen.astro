@@ -2,12 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import Show from '@components/Show.astro';
 
-const headers = {
-  'apikey': import.meta.env.APIKEY
-};
-
-const response = await fetch(import.meta.env.SHOW_URL, { headers });
-const data = await response.json();
+const data;
 ---
 <Layout title="Springsteen">
   <div class="prose prose-slate mx-auto lg:prose-lg">
