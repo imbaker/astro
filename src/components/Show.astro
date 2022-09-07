@@ -1,0 +1,24 @@
+---
+export interface Props {
+  show: { id: string,
+  date: string,
+  venue: string,
+  city: string,
+  country: string }
+}
+
+const { show } = Astro.props as Props;
+var showDate = new Date(show.date).toDateString();
+---
+<tr>
+  <td class="p-1" rowspan="2">{showDate}</td>
+  <td class="p-1 font-sans text-sm font-semibold">
+    {show.city}, {show.country}
+  </td>
+  <td class="transition p-2 ease-in-out delay-150 hover:animate-ping duration-300" rowspan="2"><i class="fa-solid fa-list-ol"></i></td>
+</tr>
+<tr class="border-b">
+  <td class="p-1 italic text-gray-600">
+    {show.venue}
+  </td>
+</tr>

@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: 'public/images/uploads' # Folder where user uploaded files should go
+public_folder: '/images/uploads'
+
+collections: # A list of collections the CMS should be able to edit
+  - name: 'show' # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 'Show' # Used in the UI, ie.: "New Post"
+    folder: 'src/pages/shows' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Layout", name: "layout", widget: "hidden", default: "$/layouts/show.astro"}
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Venue', name: 'venue', widget: 'text' }
+      - { label: 'City', name: 'city', widget: 'text' }
+      - { label: 'Country', name: 'country', widget: 'text' }

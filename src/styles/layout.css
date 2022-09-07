@@ -1,0 +1,20 @@
+.text-sm {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.text-dark {
+  color: #343a40;
+}
+
+.text-bitter {
+  font-family: Bitter, serif;
+}
+
+.text-lato {
+  font-family: Lato, sans-serif;
+}
+
+.font-weight-semibold {
+  font-weight: 600;
+}

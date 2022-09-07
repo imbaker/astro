@@ -1,0 +1,28 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Show from '@components/Show.astro';
+
+const headers = {
+  'apikey': import.meta.env.APIKEY
+};
+
+const response = await fetch(import.meta.env.SHOW_URL, { headers });
+const data = await response.json();
+---
+<Layout title="Springsteen">
+  <div class="prose prose-slate mx-auto lg:prose-lg">
+    <p class="lead">Shows attended to date</p>
+  </div>
+
+  <table class="table-auto">
+    <thead>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Details</th>
+      <th></th>
+    </thead>
+    <tbody>
+      {data.map(s => <Show show={s} />)}
+    </tbody>
+  </table>
+</Layout>
