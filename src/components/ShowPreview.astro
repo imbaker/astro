@@ -4,18 +4,18 @@ export interface Props {
 }
 
 const { show } = Astro.props;
-var showDate = new Date(show.date).toDateString();
-console.log(show.venue);
+var showDate = new Date(show.frontmatter.date).toDateString();
+console.log(show.frontmatter);
 ---
 <tr>
   <td class="p-1" rowspan="2">{showDate}</td>
   <td class="p-1 font-sans text-sm font-semibold">
-    {show.city}, {show.country}
+    {show.frontmatter.city}, {show.frontmatter.country}
   </td>
   <td class="transition p-2 ease-in-out delay-150 hover:animate-ping duration-300" rowspan="2"><i class="fa-solid fa-list-ol"></i></td>
 </tr>
 <tr class="border-b">
   <td class="p-1 italic text-gray-600">
-    {show.venue}
+    {show.frontmatter.venue}
   </td>
 </tr>
