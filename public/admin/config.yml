@@ -12,7 +12,7 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     identifier_field: date
     fields: # The fields each document in this collection have
-      - { label: "Layout" , name: "layout", widget: "hidden", default: "$/layouts/show.astro" }
+      - { label: "Layout" , name: "layout", widget: "hidden", default: "$/components/show.astro" }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Venue', name: 'venue', widget: 'text' }
       - { label: 'City', name: 'city', widget: 'text' }
