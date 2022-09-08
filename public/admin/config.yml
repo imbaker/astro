@@ -10,9 +10,9 @@ collections: # A list of collections the CMS should be able to edit
     label: 'Show' # Used in the UI, ie.: "New Post"
     folder: 'src/pages/shows' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    identifier_field: date
     fields: # The fields each document in this collection have
       - { label: "Layout" , name: "layout", widget: "hidden", default: "$/components/show.astro" }
+      - { label: 'Title', name: 'title', widget: 'text' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Venue', name: 'venue', widget: 'text' }
       - { label: 'City', name: 'city', widget: 'text' }
