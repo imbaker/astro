@@ -5,7 +5,7 @@ backend:
 media_folder: 'public/images/uploads' # Folder where user uploaded files should go
 public_folder: '/images/uploads'
 
-locale: 'uk'
+locale: 'en'
 
 collections: # A list of collections the CMS should be able to edit
   - name: 'show' # Used in routes, ie.: /admin/collections/:slug/edit
