@@ -22,6 +22,6 @@ collections: # A list of collections the CMS should be able to edit
       - label: 'Songs'
         name: 'songs'
         widget: 'list'
-        summary: {{ fields.title }}
+        summary: '{{ fields.title }}'
         fields:
           - { label: Title, name: title, widget: string }
