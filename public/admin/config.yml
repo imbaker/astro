@@ -14,8 +14,8 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: "Layout" , name: "layout", widget: "hidden", default: "../../components/Show.astro" }
-      - { label: 'Title', name: 'title', widget: 'text' }
+      - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime', date_format: "DD/MM/YYYY" }
-      - { label: 'Venue', name: 'venue', widget: 'text' }
-      - { label: 'City', name: 'city', widget: 'text' }
-      - { label: 'Country', name: 'country', widget: 'text' }
+      - { label: 'Venue', name: 'venue', widget: 'string' }
+      - { label: 'City', name: 'city', widget: 'string' }
+      - { label: 'Country', name: 'country', widget: 'string' }
