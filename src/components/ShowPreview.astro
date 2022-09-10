@@ -5,6 +5,7 @@ export interface Props {
 
 const { show } = Astro.props;
 var showDate = new Date(show.frontmatter.date).toDateString();
+console.log(show);
 console.log(show.frontmatter);
 ---
 <tr>
