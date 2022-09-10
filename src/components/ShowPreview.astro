@@ -5,7 +5,9 @@ export interface Props {
 
 const { show } = Astro.props;
 var showDate = new Date(show.frontmatter.date).toDateString();
-const hasSongs = show.frontmatter.songs.length > 0;
+var hasSongs = false;
+if (show.frontmatter.songs)
+  hasSongs = show.frontmatter.songs.length > 0;
 console.log(show);
 console.log(show.frontmatter);
 ---
