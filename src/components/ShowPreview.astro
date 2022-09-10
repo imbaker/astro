@@ -5,6 +5,7 @@ export interface Props {
 
 const { show } = Astro.props;
 var showDate = new Date(show.frontmatter.date).toDateString();
+const hasSongs = show.frontmatter.songs.length > 0;
 console.log(show);
 console.log(show.frontmatter);
 ---
@@ -20,3 +21,8 @@ console.log(show.frontmatter);
     {show.frontmatter.venue}
   </td>
 </tr>
+{hasSongs  && <tr class="border-b">
+  <td class="p-1 italic text-gray-600">
+    Songs played were...
+  </td>
+</tr>}
