@@ -1,0 +1,79 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs5v7s20i868nrkq83tg",
+    "operations": [
+      {
+        "create_table": {
+          "name": "Songs",
+          "columns": [
+            {
+              "name": "Id",
+              "type": "int",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "Title",
+              "type": "text",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "AlbumId",
+              "type": "int",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "xata_id",
+              "type": "text",
+              "check": {
+                "name": "Songs_xata_id_length_xata_id",
+                "constraint": "length(\"xata_id\") < 256"
+              },
+              "unique": true,
+              "default": "'rec_' || xata_private.xid()",
+              "nullable": false
+            },
+            {
+              "name": "xata_version",
+              "type": "integer",
+              "default": "0",
+              "nullable": false
+            },
+            {
+              "name": "xata_createdat",
+              "type": "timestamptz",
+              "default": "now()",
+              "nullable": false
+            },
+            {
+              "name": "xata_updatedat",
+              "type": "timestamptz",
+              "default": "now()",
+              "nullable": false
+            }
+          ]
+        }
+      },
+      {
+        "sql": {
+          "up": "ALTER TABLE \"Songs\" REPLICA IDENTITY FULL",
+          "onComplete": true
+        }
+      },
+      {
+        "sql": {
+          "up": "CREATE TRIGGER xata_maintain_metadata_trigger_pgroll\n  BEFORE INSERT OR UPDATE\n  ON \"Songs\"\n  FOR EACH ROW\n  EXECUTE FUNCTION xata_private.maintain_metadata_trigger_pgroll()",
+          "onComplete": true
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs5v7s20i868nrkq83tg",
+  "parent": "mig_cs5v76cla69dvoh34e3g",
+  "schema": "public",
+  "startedAt": "2024-10-13T16:23:13.525031Z"
+}

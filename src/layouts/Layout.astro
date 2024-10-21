@@ -1,34 +1,42 @@
 ---
-export interface Props {
-	title: string;
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { AstroFont } from 'astro-font';
+
+interface Props {
+  title: string;
 }
 
-const { title } = Astro.props as Props;
+const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-	<script id="fontawesome-js" src="/assets/fontawesome/all.js"></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<title>{title}</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" id="bitter-css" href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">	
-	<link rel="stylesheet" id="lato-css" href="https://fonts.googleapis.com/css2?family=Lato%3Awght%40300%3B400%3B700&amp;display=swap&amp;ver=21b6fc61aa81282d323d00d15ad0df07" type="text/css" media="all">
-	<script>
-		import countapi from 'countapi-js';
-		countapi.visits().then((result) => {
-			console.log(result.value);
-		});		
-	</script>
-</head>
-<body>
-	<div class="container mx-auto">
-		<slot />
-	</div>
-</body>
-</html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: 'Poppins',
+          // Google Fonts URL
+          googleFontsURL:
+            'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap',
+          preload: true,
+          display: 'swap',
+          selector: 'body',
+          fallback: 'sans-serif',
+        },
+      ]}
+    />
+  </head><body class="prose prose-slate">
+    <Navigation />
+    <h1>{title}</h1>
+    <slot />
+    <Footer />
+  </body>
+</html>

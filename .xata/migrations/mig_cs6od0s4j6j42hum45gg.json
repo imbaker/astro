@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs6od0s4j6j42hum45gg",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "Concerts"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs6od0s4j6j42hum45gg",
+  "parent": "mig_cs6o974r3aoojoit6t40",
+  "schema": "public",
+  "startedAt": "2024-10-14T21:00:52.053037Z"
+}

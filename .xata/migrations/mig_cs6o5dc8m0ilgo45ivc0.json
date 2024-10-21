@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs6o5dc8m0ilgo45ivc0",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "VenueId",
+          "table": "Venues",
+          "column": "Id"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs6o5dc8m0ilgo45ivc0",
+  "parent": "mig_cs6o544r3aoojoit6t00",
+  "schema": "public",
+  "startedAt": "2024-10-14T20:44:38.430928Z"
+}

@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs602rsla69dvoh34e9g",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "VenueId2",
+          "table": "Concerts",
+          "column": "VenueId"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs602rsla69dvoh34e9g",
+  "parent": "mig_cs5v81a0i868nrkq83v0",
+  "schema": "public",
+  "startedAt": "2024-10-13T17:20:47.763849Z"
+}

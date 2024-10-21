@@ -1,0 +1,85 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs5v6pkla69dvoh34e2g",
+    "operations": [
+      {
+        "create_table": {
+          "name": "Venues",
+          "columns": [
+            {
+              "name": "Id",
+              "type": "int",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "Name",
+              "type": "text",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "City",
+              "type": "text",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "Country",
+              "type": "text",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "xata_id",
+              "type": "text",
+              "check": {
+                "name": "Venues_xata_id_length_xata_id",
+                "constraint": "length(\"xata_id\") < 256"
+              },
+              "unique": true,
+              "default": "'rec_' || xata_private.xid()",
+              "nullable": false
+            },
+            {
+              "name": "xata_version",
+              "type": "integer",
+              "default": "0",
+              "nullable": false
+            },
+            {
+              "name": "xata_createdat",
+              "type": "timestamptz",
+              "default": "now()",
+              "nullable": false
+            },
+            {
+              "name": "xata_updatedat",
+              "type": "timestamptz",
+              "default": "now()",
+              "nullable": false
+            }
+          ]
+        }
+      },
+      {
+        "sql": {
+          "up": "ALTER TABLE \"Venues\" REPLICA IDENTITY FULL",
+          "onComplete": true
+        }
+      },
+      {
+        "sql": {
+          "up": "CREATE TRIGGER xata_maintain_metadata_trigger_pgroll\n  BEFORE INSERT OR UPDATE\n  ON \"Venues\"\n  FOR EACH ROW\n  EXECUTE FUNCTION xata_private.maintain_metadata_trigger_pgroll()",
+          "onComplete": true
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs5v6pkla69dvoh34e2g",
+  "parent": "mig_cs5niscla69dvoh34ci0",
+  "schema": "public",
+  "startedAt": "2024-10-13T16:20:55.271007Z"
+}

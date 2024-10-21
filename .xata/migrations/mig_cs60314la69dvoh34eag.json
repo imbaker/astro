@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs60314la69dvoh34eag",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Concerts",
+          "column": {
+            "pk": false,
+            "name": "VenueId",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"Venues\"}",
+            "nullable": true,
+            "references": {
+              "name": "VenueId_link",
+              "table": "Venues",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs60314la69dvoh34eag",
+  "parent": "mig_cs602rsla69dvoh34e9g",
+  "schema": "public",
+  "startedAt": "2024-10-13T17:21:08.90281Z"
+}

@@ -1,22 +1,26 @@
 {
-  "name": "@example/basics",
+  "name": "popular-plasma",
+  "type": "module",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
-  "devDependencies": {
-    "@astrojs/svelte": "^1.0.0",
-    "@astrojs/tailwind": "^0.2.1",
-    "@tailwindcss/typography": "^0.5.2",
-    "astro": "^1.0.0-beta.57",
-    "astro-fonts": "^0.2.6",
-    "svelte": "^3.49.0"
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "countapi-js": "^1.0.2"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/db": "^0.14.2",
+    "@astrojs/tailwind": "^5.1.2",
+    "@xata.io/client": "^0.0.0-next.v403cdd55cb26b69c074dbc07b44daa0c2a0a77b6",
+    "astro": "^4.16.6",
+    "astro-font": "^0.1.81",
+    "fulldev-ui": "^0.4.28",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15"
   }
 }

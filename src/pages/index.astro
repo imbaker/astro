@@ -1,83 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Banner from '@components/Banner.svelte';
 
-const headers = {
-  'apikey': import.meta.env.APIKEY
+import { Concert } from 'astro:db';
+
+type Concert = {
+  Date: Date;
+  VenueId: { Name: string; City: string; Country: string };
 };
 
-let lastConcertDate = "2016-06-06";
-let nextConcertDate = "2023-07-08";
+const res = await fetch(`${Astro.url}api/concerts`);
+const concerts = await res.json();
 ---
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<Banner date={lastConcertDate} client:load/>
-		<Banner date={nextConcertDate} client:load/>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br/>
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card href="https://docs.astro.build/" title="Documentation" body="Learn how Astro works and explore the official API docs." /> 
-			<Card href="https://astro.build/integrations/" title="Integrations" body="Supercharge your project with new frameworks and libraries." /> 
-			<Card href="https://astro.build/themes/" title="Themes" body="Explore a galaxy of community-built starter themes." /> 
-			<Card href="https://astro.build/chat/" title="Chat" body="Come say hi to our amazing Discord community. ❤️" />
-		</ul>
-	</main>
+
+<Layout title="Home">
+  <h2>Bruce Springsteen concerts attended</h2>
+  {
+    concerts.map((concert: Concert, i: number) => (
+      <div class="flex rounded m-2 shadow bg-sky-300 hover:bg-yellow-600">
+        <div class="my-4 text-center rounded-l text-3xl font-semibold w-10">
+          {i + 1}
+        </div>
+        <div class="rounded-r w-full bg-sky-50 w-100 border-l-2 border-sky-50">
+          <div class="rounded-tr py-1 px-2 bg-sky-300">
+            <b>
+              {new Date(concert.Date).toLocaleString('en-GB', {
+                dateStyle: 'short',
+              })}{' '}
+            </b>
+          </div>
+          <div class="px-2 py-1 bg-sky-50">
+            {concert.VenueId.Name}, {concert.VenueId.City},{' '}
+            {concert.VenueId.Country}
+          </div>
+        </div>
+      </div>
+    ))
+  }
 </Layout>
-
-<style>
-	:root {
-		--astro-gradient: linear-gradient(0deg,#4F39FA, #DA62C4);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-
-	main {
-		margin: auto;
-    	padding: 1em;
-		max-width: 60ch;
-	}
-
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% { background-position-y: 0%; }
-		50% { background-position-y: 80%; }
-	}
-
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4F39FA;
-		padding: 1.0rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
-
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
