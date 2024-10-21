@@ -5,9 +5,12 @@ import tailwind from '@astrojs/tailwind';
 
 import fulldev from 'fulldev-ui/integration';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
+
   integrations: [
     tailwind(),
     fulldev({
@@ -21,4 +24,6 @@ export default defineConfig({
       },
     }),
   ],
+
+  adapter: netlify(),
 });

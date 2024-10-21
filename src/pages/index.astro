@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import { Concert } from 'astro:db';
-
 type Concert = {
   Date: Date;
   VenueId: { Name: string; City: string; Country: string };
