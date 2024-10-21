@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/db": "^0.14.2",
     "@astrojs/tailwind": "^5.1.2",
     "@xata.io/client": "^0.0.0-next.v403cdd55cb26b69c074dbc07b44daa0c2a0a77b6",
     "astro": "^4.16.6",
